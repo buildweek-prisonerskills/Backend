@@ -16,11 +16,11 @@ router.delete("/:id", async (req, res) => {
   try {
     const removed = await Users.remove(req.params.id);
     if (removed) {
-      res.status(204).json({ success: "User removed" });
+      res.status(204).json({ success: "user has been removed" });
     } else {
       res
         .status(404)
-        .json({ message: "No user with the specified ID currently exists" });
+        .json({ message: "no user with the specified ID currently exists" });
     }
   } catch (err) {
     res.status(500).json(err);

@@ -5,6 +5,7 @@ module.exports = {
 	update,
 	remove,
 	find,
+	findInmates,
 	findBy,
 	findById
 };
@@ -32,6 +33,12 @@ function remove(id) {
 
 function find() {
 	return db('facilities');
+}
+
+function findInmates(id) {
+	return db('facilities')
+	.innerJoin('inmates', function() {this.on('facilities.id', '=', 'inmates.facility_id')})
+	.where({ 'facility_id': id })
 }
 
 function findBy(filter) {
