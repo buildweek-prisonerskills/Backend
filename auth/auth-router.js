@@ -7,6 +7,7 @@ const Users = require('../api/users-model.js');
 
 
 // endpoints start with /api/auth
+// ITS WORKING
 router.post('/register', (req, res) => {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 12); //hashed 2^12th times
@@ -22,6 +23,7 @@ router.post('/register', (req, res) => {
     })
 });
 
+// ITS WORKING
 router.post('/login', (req, res) => {
   let { username, password } = req.body;
 
