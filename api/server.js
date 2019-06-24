@@ -19,7 +19,7 @@ server.use('/api/auth', authRouter);
 
 // sanity check route 
 server.get('/', (req, res) => {
-      res.send(`<h2>nailed it!</h2>`)
+      res.send(`<h2>Prisoner Skills Apps</h2>`)
       
 });
 

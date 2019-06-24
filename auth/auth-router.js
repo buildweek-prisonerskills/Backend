@@ -3,6 +3,8 @@ const router = express.Router();
 const bcrypt = require("bcryptjs");
 const { generateToken } = require("./auth-middleware.js");
 
+const Users = require('../api/users-model.js');
+
 
 // endpoints start with /api/auth
 router.post('/register', (req, res) => {

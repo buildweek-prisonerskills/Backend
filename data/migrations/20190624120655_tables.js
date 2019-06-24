@@ -19,6 +19,7 @@ exports.up = function(knex, Promise) {
                   tbl.increments();
                   tbl.string('name', 130).notNullable().unique();
                   tbl.string('location', 230).notNullable();
+                  tbl.integer('available_inmates').notNullable();
 
             })
             .createTable('inmates', tbl => {
