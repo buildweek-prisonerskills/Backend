@@ -99,37 +99,44 @@ Server returns:
   {
     "name": "Kayla Crow",
     "work_release": "True",
-    "skills": "food service, forklift operation, butchery, shipping/receiving, landscaping, woodworking"
+    "skills": "food service, forklift operation, butchery, shipping/receiving, landscaping, woodworking",
+    "facility_id": "1"
   },
   {
     "name": "Gary Ridgeway",
     "work_release": "False",
-    "skills": "food service, auto repair, welding, machining"
+    "skills": "food service, auto repair, welding, machining",
+    "facility_id": "2"
   },
   {
     "name": "Dennis Rader",
     "work_release": "False",
-    "skills": "laundry service, hand/machine sewing, landscaping"
+    "skills": "laundry service, hand/machine sewing, landscaping",
+    "facility_id": "3"
   },
   {
     "name": "Charles Cullen",
     "work_release": "False",
-    "skills": "health care, carpentry, woodworking, custodial"
+    "skills": "health care, carpentry, woodworking, custodial",
+    "facility_id": "4"
   },
   {
     "name": "John Justin Bunting",
     "work_release": "False",
-    "skills": "furniture refinishing, carpentry, painting"
+    "skills": "furniture refinishing, carpentry, painting",
+    "facility_id": "5"
   },
   {
     "name": "Ivan Milat",
     "work_release": "False",
-    "skills": "landscaping, custodial"
+    "skills": "landscaping, custodial",
+    "facility_id": "6"
   },
   {
     "name": "Rodney Alcala",
     "work_release": "False",
-    "skills": "theater, film/television"
+    "skills": "theater, film/television",
+    "facility_id": "1"
   },
 ]
 ```
@@ -146,7 +153,8 @@ Server will return
 {
   "id": 1,
   "first_name": "Paul",
-  "last_name": "Holes"
+  "last_name": "Holes",
+  "facility_id": "1"
 {
 ```
 ### Edit user profile
@@ -156,7 +164,8 @@ User can edit
 ```
 {
   "first_name": "Paul",
-  "last_name": "Holes"
+  "last_name": "Holes",
+  "facility_id": "1"
 {
 ```
 ### Delete user profile
