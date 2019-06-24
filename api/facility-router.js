@@ -2,9 +2,9 @@ const router = require('express').Router();
 
 const Facilities = require('./facility-model.js');
 
-// /api
+// /api/facilities
 
-router.get('/facilities', async (req, res) => {
+router.get('/', async (req, res) => {
             try {
                   const facilities = await Facilities.find('facilities')
                   res.status(200).json(facilities)
@@ -13,10 +13,10 @@ router.get('/facilities', async (req, res) => {
                   res.status(500).json({ error: 'failed to retrieve facilities from the database'})
             }
       })
-      .post('/facilities', async (req, res) => {
+      .post('/', async (req, res) => {
             const facility = req.body
             if(!facility.name || !facility.location){
-                  return res.status(400).json({message: 'all inputs are required'});  
+                  return res.status(400).json({message: 'all fields are required'});  
             } 
             try {
                   const newFacility = await db.add(facility)

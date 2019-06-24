@@ -21,7 +21,7 @@ function remove(id) {
 }
 
 function find() {
-	return db('inmates').select('id', 'name');
+	return db('inmates');
 }
 
 function findBy(filter) {
