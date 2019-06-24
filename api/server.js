@@ -1,7 +1,6 @@
 const express = require('express');
 const helmet = require('helmet');
 const cors = require('cors');
-const restricted = require('../auth/auth-middleware');
 
 const authRouter = require('../auth/auth-router.js');
 const facilityRouter = require('../api/facility-router.js'); 
@@ -16,8 +15,6 @@ server.use(cors());
 server.use('/api/auth', authRouter);
 server.use('/api/facilities', facilityRouter);
 server.use('/api/inmates', inmateRouter)
-
-
 
 // sanity check route 
 server.get('/', (req, res) => {

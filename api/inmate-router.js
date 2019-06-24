@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const Inmates = require('./inmate-model.js');
+const { restricted } = require('../auth/auth-middleware/js');
 
 // /api/inmates
 
