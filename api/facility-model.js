@@ -11,7 +11,7 @@ module.exports = {
 async function add(facility) {
 	const [id] = await db('facilities').insert(facility).returning('id');
 	return db('facilities')
-		.select('id', 'name')
+		.select('id', 'name', 'location', 'available_inmates')
 		.where({ id })
 		.first();
 }
@@ -21,7 +21,7 @@ function remove(id) {
 }
 
 function find() {
-	return db('facilities').select('id', 'name', 'password');
+	return db('facilities');
 }
 
 function findBy(filter) {
@@ -30,7 +30,7 @@ function findBy(filter) {
 
 function findById(id) {
 	return db('facilities')
-		.select('id', 'name')
+		.select('id', 'name', 'location', 'available_inmates')
 		.where({ id })
 		.first();
 }

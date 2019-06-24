@@ -12,7 +12,7 @@ exports.up = function(knex, Promise) {
                         .references('id')
                         .inTable('facilities')
                         .onDelete('RESTRICT')
-                        .onUpdate('CASCADE')
+                        .onUpdate('CASCADE');
 
             })
             .createTable('facilities', tbl => {
@@ -24,6 +24,7 @@ exports.up = function(knex, Promise) {
             })
             .createTable('inmates', tbl => {
                   tbl.increments();
+                  tbl.string('name', 130).notNullable();
                   tbl
                         .integer('facility_id')
                         .unsigned()
@@ -31,9 +32,9 @@ exports.up = function(knex, Promise) {
                         .references('id')
                         .inTable('facilities')
                         .onDelete('RESTRICT')
-                        .onUpdate('CASCADE')
+                        .onUpdate('CASCADE');
                   tbl.boolean('work_release').defaultTo(false);
-                  tbl.string('skills', 400)
+                  tbl.string('skills', 400);
             })
   
 };
