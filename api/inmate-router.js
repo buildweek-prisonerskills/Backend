@@ -1,7 +1,7 @@
 const router = require("express").Router();
 
 const Inmates = require("./inmate-model.js");
-const { restricted } = require("../auth/auth-middleware.js");
+const { authenticate } = require("../auth/auth-middleware.js");
 
 // /api/inmates
 
@@ -38,9 +38,9 @@ router
 // /api/inmates/:id
 
 router.get('/:id', (req, res) => {
-            Inmates.find(req.params.id)
+            Inmates.findById(req.params.id)
             .then(inmate => {
-                  if(id) {
+                  if(req.params.id) {
                         res.status(200).json(inmate);
                   } else {
                         res.status(404).json({ message: "no inmate with that ID currently exists in our database"})
