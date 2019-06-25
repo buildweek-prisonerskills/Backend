@@ -1,4 +1,4 @@
-# BACK END [Prisoner Skills] NOTHING WORKS YET => SUBJECT TO CHANGE
+# BACK END [Prisoner Skills] => SUBJECT TO CHANGE
 #### Back End Architect => Kayla Crow
 *****
 ## BASE URL:
@@ -91,7 +91,7 @@ Server returns:
 ```
 
 ### Displays list of participating prisoners
-#### GET /api/facilities/inmates
+#### GET /api/inmates
 
 Server returns: 
 ```
@@ -100,76 +100,101 @@ Server returns:
     "name": "Kayla Crow",
     "work_release": "True",
     "skills": "food service, forklift operation, butchery, shipping/receiving, landscaping, woodworking",
-    "facility_id": "1"
+    "facility_id": "1"  //will eventually be dynamic, pull facility name from facilities table
   },
   {
     "name": "Gary Ridgeway",
     "work_release": "False",
     "skills": "food service, auto repair, welding, machining",
-    "facility_id": "2"
+    "facility_id": "2"  //will eventually be dynamic, pull facility name from facilities table
   },
   {
     "name": "Dennis Rader",
     "work_release": "False",
     "skills": "laundry service, hand/machine sewing, landscaping",
-    "facility_id": "3"
+    "facility_id": "3"  //will eventually be dynamic, pull facility name from facilities table
   },
   {
     "name": "Charles Cullen",
     "work_release": "False",
     "skills": "health care, carpentry, woodworking, custodial",
-    "facility_id": "4"
+    "facility_id": "4"  //will eventually be dynamic, pull facility name from facilities table
   },
   {
     "name": "John Justin Bunting",
     "work_release": "False",
     "skills": "furniture refinishing, carpentry, painting",
-    "facility_id": "5"
+    "facility_id": "5"  //will eventually be dynamic, pull facility name from facilities table
   },
   {
     "name": "Ivan Milat",
     "work_release": "False",
     "skills": "landscaping, custodial",
-    "facility_id": "6"
+    "facility_id": "6"  //will eventually be dynamic, pull facility name from facilities table
   },
   {
     "name": "Rodney Alcala",
     "work_release": "False",
     "skills": "theater, film/television",
-    "facility_id": "1"
+    "facility_id": "1"  //will eventually be dynamic, pull facility name from facilities table
   },
 ]
 ```
 *****
-# Restricted Routes
+# Restricted Routes              //AREN'T WORKING YET - day 2
 ## USER INFO
 
 ### Displays user profile if logged in
-#### GET /api/user/:id
+#### GET /api/users/:id
 Example: User 1 logs in >> /api/profile/1
 
 Server will return
 ```
 {
   "id": 1,
-  "first_name": "Paul",
-  "last_name": "Holes",
-  "facility_id": "1"
+  "username": "KCrow"
+  "facility_id": "1"   //will eventually be dynamic, pull facility name from facilities table
 {
 ```
-### Edit user profile
-#### PUT /api/user/:id
+
+### Delete user profile
+#### DELETE /api/users/:id
+
+Server will respond status 204 if successful
+I'd suggest showing some kind of success message/alert on the front end, before rerouting.
+
+
+### Displays inmate profile if admin is logged in
+#### GET /api/inmates/:id
+
+Server will return
+```
+{
+  "name": "Rodney Alcala",
+  "work_release": "False",
+  "skills": "theater, film/television",
+  "facility_id": "1"   //will eventually be dynamic, pull facility name from facilities table
+}
+```
+### Add new inmate if admin is logged in
+#### POST /api/inmates
+
+
+### Edit inmate profile if admin is logged in
+#### PUT /api/inmates/:id
 
 User can edit
 ```
 {
-  "first_name": "Paul",
-  "last_name": "Holes",
-  "facility_id": "1"
-{
+  "name": "Rodney Alcala",
+  "work_release": "False",
+  "skills": "theater, film/television",
+  "facility_id": "1"    //will eventually be dynamic, pull facility name from facilities table
+}
 ```
-### Delete user profile
-#### DELETE /api/user/:id
+### Delete inmate profile if admin is logged in
+#### DELETE /api/inmates/:id
 
 Server will respond status 204 if successful
 I'd suggest showing some kind of success message/alert on the front end, before rerouting.
+
