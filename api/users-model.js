@@ -21,7 +21,7 @@ function remove(id) {
 }
 
 function find() {
-	return db('users').select('id', 'username', 'password');
+	return db('users').select('id', 'username', 'password', "facility_id");
 }
 
 function findBy(filter) {

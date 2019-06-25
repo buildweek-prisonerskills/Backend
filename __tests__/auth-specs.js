@@ -15,8 +15,9 @@ describe('Auth Route /api/auth', () => {
                   .send({
                         "username": "URMom",
                         "password": "pass",
-                        "facility_id":
+                        "facility_id": "1"
                   })
+                  expect(res.status).toBe(201)
             it('')
       })
       describe('/login', () => {
