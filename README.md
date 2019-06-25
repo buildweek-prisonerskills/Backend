@@ -100,48 +100,49 @@ Server returns:
     "name": "Kayla Crow",
     "work_release": "True",
     "skills": "food service, forklift operation, butchery, shipping/receiving, landscaping, woodworking",
-    "facility_id": "1"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "1"
   },
   {
     "name": "Gary Ridgeway",
     "work_release": "False",
     "skills": "food service, auto repair, welding, machining",
-    "facility_id": "2"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "2"
   },
   {
     "name": "Dennis Rader",
     "work_release": "False",
     "skills": "laundry service, hand/machine sewing, landscaping",
-    "facility_id": "3"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "3"
   },
   {
     "name": "Charles Cullen",
     "work_release": "False",
     "skills": "health care, carpentry, woodworking, custodial",
-    "facility_id": "4"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "4"
   },
   {
     "name": "John Justin Bunting",
     "work_release": "False",
     "skills": "furniture refinishing, carpentry, painting",
-    "facility_id": "5"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "5"
   },
   {
     "name": "Ivan Milat",
     "work_release": "False",
     "skills": "landscaping, custodial",
-    "facility_id": "6"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "6"
   },
   {
     "name": "Rodney Alcala",
     "work_release": "False",
     "skills": "theater, film/television",
-    "facility_id": "1"  //will eventually be dynamic, pull facility name from facilities table
+    "facility_id": "1"
   },
 ]
 ```
 *****
-# Restricted Routes              //AREN'T WORKING YET - day 2
+# Restricted Routes              //are fully live, not yet restricted - day 2
+//FRONT END! you do not need to use every request/endpoint. Just know they are available should you choose to use them <3
 ## USER INFO
 
 ### Displays user profile if logged in
@@ -194,6 +195,41 @@ User can edit
 ```
 ### Delete inmate profile if admin is logged in
 #### DELETE /api/inmates/:id
+
+Server will respond status 204 if successful
+I'd suggest showing some kind of success message/alert on the front end, before rerouting.
+
+
+
+### Displays facility profile if admin is logged in
+#### GET /api/facilities/:id
+
+Server will return
+```
+{
+    "id": 3,
+    "name": "Rikers Island",
+    "availability": "0", // this will need to be dynamic, however many an admin has added.
+    "address": "11-11 Hazen Street, East Elmhurst, NY 11370"
+}
+```
+### Add new facility if admin is logged in
+#### POST /api/facilities
+
+
+### Edit facility profile if admin is logged in
+#### PUT /api/facilities/:id
+
+User can edit
+```
+{
+    "name": "Rikers Island",
+    "availability": "0", // this will need to be dynamic, however many an admin has added.
+    "address": "11-11 Hazen Street, East Elmhurst, NY 11370"
+}
+```
+### Delete facility profile if admin is logged in
+#### DELETE /api/facilities/:id
 
 Server will respond status 204 if successful
 I'd suggest showing some kind of success message/alert on the front end, before rerouting.
