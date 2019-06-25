@@ -40,8 +40,11 @@ function findBy(filter) {
 
 function findById(id) {
 	return db('inmates')
-		.select('id', 'name', 'work_release', 'skills')
-		// .innerJoin('facilities', function() {this.on('facilities.id', '=', 'inmates.facility_id')})
+		.select(
+			'id', 
+			'name', 
+			'work_release', 
+			'skills')
 		.where({ id })
 		.first();
 }

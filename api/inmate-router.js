@@ -25,7 +25,7 @@ router
       return res.status(400).json({ message: "all fields are required" });
     }
     try {
-      const newInmate = await db.add(inmate);
+      const newInmate = await Inmates.add(inmate);
       res.status(201).json({ message: "inmate profile created" });
     } catch (error) {
       console.log(error);
