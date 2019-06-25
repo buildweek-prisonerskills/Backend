@@ -8,10 +8,12 @@ const inmateRouter = require('../api/inmate-router.js');
 
 const server = express();
 
+// middleware
 server.use(express.json());
 server.use(helmet());
 server.use(cors());
 
+// routes
 server.use('/api/auth', authRouter);
 server.use('/api/facilities', facilityRouter);
 server.use('/api/inmates', inmateRouter)
