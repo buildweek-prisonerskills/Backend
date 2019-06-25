@@ -2,7 +2,7 @@
 #### Back End Architect => Kayla Crow
 *****
 ## BASE URL:
-#### http://prisonerskills.herokuapp.com (this isn't real yet)
+#### http://prisonerskills.herokuapp.com (she's alive!)
 *****
 
 ### admin sign up:
