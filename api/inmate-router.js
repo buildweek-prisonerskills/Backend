@@ -37,8 +37,45 @@ router
 
 // /api/inmates/:id
 
-router.get('/:id', async (req, res) => {
-      
-})
+router.get('/:id', (req, res) => {
+            Inmates.find(req.params.id)
+            .then(inmate => {
+                  if(id) {
+                        res.status(200).json(inmate);
+                  } else {
+                        res.status(404).json({ message: "no inmate with that ID currently exists in our database"})
+                  }
+            })
+            .catch(err => {
+                  console.log(err);
+                  res.status(500).json({ message: "could not retrieve inmates from our database"})
+            })
+      })
+      .put('/:id', async (req, res) => {
+            try {
+                  const change = await Inmates.update(req.params.id, req.body);
+                  if(change) {
+                        res.status(200).json({ message: 'update successful' });
+                  } else {
+                        res.status(404).json({ message: 'that inmate could not be found in our database' })
+                  }
+            } catch(err) {
+                  console.log(err)
+                  res.status(500).json({ message: 'could not update the inmates database'})
+            }
+      })
+      .delete('/:id', async (req, res) => {
+            try {
+                  const count = await Inmates.remove(req.params.id);
+                  if(count > 0) {
+                        res.status(200).json({message: 'this inmate has been removed from the database'})
+                  } else {
+                        res.status(404).json({ message: 'that inmate could not be found in our database'})
+                  }
+            } catch(err) {
+                  console.log(err)
+                  res.status(500).json({ message: 'could not remove inmate from database'})
+            }
+      })
 
 module.exports = router;
