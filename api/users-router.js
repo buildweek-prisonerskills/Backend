@@ -12,7 +12,24 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.delete("/:id", async (req, res) => {
+router.put("/:id", async (req, res) => {
+  try {
+    const change = await Users.update(req.params.id, req.body);
+    if (change) {
+      res.status(200).json({ message: "update successful" });
+    } else {
+      res
+        .status(404)
+        .json({ message: "that user could not be found in our database" });
+    }
+  } catch (err) {
+    console.log(err);
+    res
+      .status(500)
+      .json({ message: "could not update the users database" });
+  }
+})
+.delete("/:id", async (req, res) => {
   try {
     const removed = await Users.remove(req.params.id);
     if (removed) {
