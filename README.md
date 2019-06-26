@@ -154,9 +154,11 @@ Server will return
 {
   "id": 1,
   "username": "KCrow"
-  "facility_id": "1"   //will eventually be dynamic, pull facility name from facilities table
+  "facility_id": "1"   //will hopefully be dynamic, pull facility name from facilities table
 {
 ```
+### Edit user profile
+#### PUT /api/users/:id
 
 ### Delete user profile
 #### DELETE /api/users/:id
@@ -174,7 +176,7 @@ Server will return
   "name": "Rodney Alcala",
   "work_release": "False",
   "skills": "theater, film/television",
-  "facility_id": "1"   //will eventually be dynamic, pull facility name from facilities table
+  "facility_id": "1"   //will hopefully be dynamic, pull facility name from facilities table
 }
 ```
 ### Add new inmate if admin is logged in
@@ -190,7 +192,7 @@ User can edit
   "name": "Rodney Alcala",
   "work_release": "False",
   "skills": "theater, film/television",
-  "facility_id": "1"    //will eventually be dynamic, pull facility name from facilities table
+  "facility_id": "1"    //will hopefully be dynamic, pull facility name from facilities table
 }
 ```
 ### Delete inmate profile if admin is logged in
