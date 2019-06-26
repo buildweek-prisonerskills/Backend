@@ -34,8 +34,15 @@ describe('facility model', () => {
                   const facilities = await db('facilities');
                   expect(facilities).toHaveLength(0)
             })
-            it('should return 204 after facility is deleted', () => {
-
+            it('should delete the specified facility', async () => {
+                  const facilityList = await db.get()
+                  const facilityToRemove = await db.get({ 'f.name': 'whatever'})
+                  const removed = await db.remove({ facility: 'whatever' })
+                  const newFacilityList = await db.get()
+                  expect(newFacilityList.length).toBeLessThan(facilityList.length)
+                  expect(facilityToRemove.name).toBe('whatever');
+                  expect(removed).toBe(true);
+                  
             })
       })
       describe('find()', () => {
@@ -46,4 +53,5 @@ describe('facility model', () => {
                   expect(facilities).toEqual(expect.any(Array))
             })
       })
+      
 })
