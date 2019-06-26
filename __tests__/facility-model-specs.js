@@ -1,6 +1,6 @@
 const db = require('../data/dbConfig.js');
-// const server = require('../api/server.js');
-// const supertest = require('supertest');
+const server = require('../api/server.js');
+const supertest = require('supertest');
 const { add, update, remove, find, findInmates, findBy, findById } = require('../api/facility-model');
 
 describe('facility model', () => {
@@ -29,13 +29,21 @@ describe('facility model', () => {
 
       describe('remove()', () => {
             it('should remove facility from facilities database', async () => {
-                  await remove({facility: 'flim flam'})
+                  await remove({facility: 'Azkaban'})
 
                   const facilities = await db('facilities');
                   expect(facilities).toHaveLength(0)
             })
             it('should return 204 after facility is deleted', () => {
 
+            })
+      })
+      describe('find()', () => {
+            it('should return an array from the database', async () => {
+            //      let res = await superteset(server).get('/api/facilities')
+            //      expect(Aray.isArray(res.body)).toBe(true);
+                  const facilities = await db.get()
+                  expect(facilities).toEqual(expect.any(Array))
             })
       })
 })
