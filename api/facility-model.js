@@ -47,7 +47,11 @@ function findBy(filter) {
 
 function findById(id) {
 	return db('facilities')
-		.select('id', 'name', 'location', 'available_inmates')
+		.select(
+			'id', 
+			'name', 
+			'location', 
+			'available_inmates')
 		.where({ id })
 		.first();
 }
