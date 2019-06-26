@@ -141,7 +141,7 @@ Server returns:
 ]
 ```
 *****
-# Restricted Routes              //are fully live, not yet restricted - day 2
+# Restricted Routes              //are fully live, not yet restricted - day 3
 //FRONT END! you do not need to use every request/endpoint. Just know they are available should you choose to use them <3
 ## USER INFO
 
