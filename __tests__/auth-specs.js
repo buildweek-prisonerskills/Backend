@@ -18,7 +18,9 @@ describe('Auth Route /api/auth', () => {
                         "facility_id": "1"
                   })
                   expect(res.status).toBe(201)
+            })
             it('')
+            
       })
       describe('/login', () => {
             it('should return status 401 if you try to log in without a token (without registering)', async () => {
