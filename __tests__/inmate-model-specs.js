@@ -43,23 +43,7 @@ describe('inmate model', () => {
                   const inmates = await db('inmates');
                   expect(inmates).toHaveLength(0)
             })
-            // it('should delete the specified inmate', async () => {
-            //       const inmateToRemove = await inmate.add({
-            //             name: 'Azkaban',
-            //             location: '123 England Island',
-            //             available_inmates: '5'})
-            //       const inmateList = await inmate.find()
-            //       const removed = await inmate.remove({
-                        //    id: , 
-                        //    name: 'Azkaban',
-                        //    location: '123 England Island',
-                        //    available_inmates: '5'})
-            //       const newinmateList = await inmate.find()
-            //       expect(newinmateList.length).toBeLessThan(inmateList.length)
-            //       expect(inmateToRemove.name).toBe('whatever');
-            //       expect(removed).toBe(true);
-                  
-            // })
+       
       })
       describe('find()', () => {
             it('should return an array from the database', async () => {
