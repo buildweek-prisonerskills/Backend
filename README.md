@@ -55,38 +55,38 @@ Server returns:
   {
     "id": 1,
     "name": "Colorado State Penitentiary",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
     "address": "50 Evans Rd, Cañon City, CO 81212"
   },
   {
     "id": 2,
     "name": "USP Florence ADMAX",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
     "address": "5880 CO-67, Florence, CO 81226"
   },
   {
     "id": 3,
     "name": "Rikers Island",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "11-11 Hazen Street, East Elmhurst, NY 11370"
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
+    "location": "11-11 Hazen Street, East Elmhurst, NY 11370"
   },
   {
     "id": 4,
     "name": "Attica Correctional Facility",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "639 Exchange St, Attica, NY 14011"
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
+    "location": "639 Exchange St, Attica, NY 14011"
   },
   {
     "id": 5,
     "name": "San Quentin State Prison",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "San Quentin State Prison, San Quentin, CA 94974"
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
+    "location": "San Quentin State Prison, San Quentin, CA 94974"
   },
   {
     "id": 6,
     "name": "Leavenworth Federal Penitentiary",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "1300 Metropolitan Ave, Leavenworth, KS 66048"
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
+    "location": "1300 Metropolitan Ave, Leavenworth, KS 66048"
   }
  
 ]
