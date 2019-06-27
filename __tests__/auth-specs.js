@@ -38,15 +38,16 @@ describe('Auth Route /api/auth', () => {
                   })
                   expect(res.status).toBe(401)
             })
-            it('should return status 200 if valid credentials are provided', async () => {
-                  const res = await supertest(server)
-                  .post('/api/auth/login')
-                  .send({
-                        "username": "name",
-                        "password": "pass"
-                  })
-                  expect(res.status).toBe(200)
-            })
+            // it('should return status 200 if valid user logs in', async () => {
+            //       const validUser = {
+            //             "username": "name",
+            //             "password": "$2a$12$jYMkjTPawV.Id.6dUrf6PezdHvXt0LRvwNPdTKPzWR/nuZSeoZJo6"
+            //       }
+            //       const res = await supertest(server)
+            //       .post('/api/auth/login')
+            //       .send(validUser)
+            //       expect(res.status).toBe(200)
+            // })
       })
 })
 
