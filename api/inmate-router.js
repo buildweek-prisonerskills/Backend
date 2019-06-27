@@ -17,7 +17,7 @@ router
       });
     }
   })
-  .post("/", async (req, res) => {
+  .post("/", authenticate, async (req, res) => {
     const inmate = req.body;
     if (!inmate.name || !inmate.skills) {
       return res.status(400).json({ message: "all fields are required" });
@@ -56,7 +56,7 @@ router
           .json({ message: "could not retrieve inmates from our database" });
       });
   })
-  .put("/:id", async (req, res) => {
+  .put("/:id", authenticate, async (req, res) => {
     try {
       const change = await Inmates.update(req.params.id, req.body);
       if (change) {
@@ -73,7 +73,7 @@ router
         .json({ message: "could not update the inmates database" });
     }
   })
-  .delete("/:id", async (req, res) => {
+  .delete("/:id", authenticate, async (req, res) => {
     try {
       const count = await Inmates.remove(req.params.id);
       if (count > 0) {

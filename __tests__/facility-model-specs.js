@@ -1,7 +1,6 @@
 const db = require('../data/dbConfig.js');
 const Facility = require('../api/facility-model');
 // const supertest = require('supertest');
-const { add, update, remove, find, findInmates, findBy, findById } = require('../api/facility-model');
 
 describe('facility model', () => {
       beforeEach(async () => {
@@ -14,7 +13,7 @@ describe('facility model', () => {
 
       describe('add()', () => {
             it('should insert facility to facilities database', async () => {
-                  await add({
+                  await Facility.add({
                         name: 'Azkaban',
                         location: '123 England Island',
                         available_inmates: '5'})
@@ -27,7 +26,7 @@ describe('facility model', () => {
                         name: 'Azkaban',
                         location: '123 England Island',
                         available_inmates: '5'};
-                  let inserted = await add(facility);
+                  let inserted = await Facility.add(facility);
                   expect(inserted.name).toBe(facility.name)
             })
             
@@ -35,7 +34,7 @@ describe('facility model', () => {
 
       describe('remove()', () => {
             it('should remove facility from facilities database', async () => {
-                  await remove({facility: 'Azkaban'})
+                  await Facility.remove({facility: 'Azkaban'})
 
                   const facilities = await db('facilities');
                   expect(facilities).toHaveLength(0)

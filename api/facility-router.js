@@ -17,7 +17,7 @@ router
         .json({ error: "failed to retrieve facilities from the database" });
     }
   })
-  .post("/", async (req, res) => {
+  .post("/", authenticate, async (req, res) => {
     const facility = req.body;
     if (!facility.name || !facility.location) {
       return res.status(400).json({ message: "all fields are required" });
@@ -53,7 +53,7 @@ router
           .json({ message: "could not retrieve facilities from our database" });
       });
   })
-  .put("/:id", async (req, res) => {
+  .put("/:id", authenticate, async (req, res) => {
     try {
       const change = await Facilities.update(req.params.id, req.body);
       if (change) {
@@ -70,7 +70,7 @@ router
         .json({ message: "could not update the facilities database" });
     }
   })
-  .delete("/:id", async (req, res) => {
+  .delete("/:id", authenticate, async (req, res) => {
     try {
       const count = await Facilities.remove(req.params.id);
       if (count > 0) {

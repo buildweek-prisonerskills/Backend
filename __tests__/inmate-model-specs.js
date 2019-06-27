@@ -1,7 +1,5 @@
 const db = require('../data/dbConfig.js');
 const Inmate = require('../api/inmate-model');
-// const supertest = require('supertest');
-const { add, update, remove, find, findBy, findById } = require('../api/inmate-model');
 
 describe('inmate model', () => {
       beforeEach(async () => {
@@ -14,7 +12,7 @@ describe('inmate model', () => {
 
       describe('add()', () => {
             it('should insert inmate to inmates database', async () => {
-                  await add({
+                  await Inmate.add({
                         name: 'Bellatrix Lestrange',
                         facility_id: 2,
                         work_release: 1,
@@ -30,7 +28,7 @@ describe('inmate model', () => {
                         work_release: 1,
                         skills: 'laundry service, butchery, painting'
                   };
-                  let inserted = await add(inmate);
+                  let inserted = await Inmate.add(inmate);
                   expect(inserted.name).toBe(inmate.name)
             })
             
@@ -38,7 +36,7 @@ describe('inmate model', () => {
 
       describe('remove()', () => {
             it('should remove inmate from inmates database', async () => {
-                  await remove({inmate: 'Azkaban'})
+                  await Inmate.remove({inmate: 'Azkaban'})
 
                   const inmates = await db('inmates');
                   expect(inmates).toHaveLength(0)
