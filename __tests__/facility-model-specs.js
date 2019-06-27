@@ -41,13 +41,16 @@ describe('facility model', () => {
                   expect(facilities).toHaveLength(0)
             })
             // it('should delete the specified facility', async () => {
-            //       const facilityToRemove = await Facility.add({name: 'Azkaban',
-            //       location: '123 England Island',
-            //       available_inmates: '5'})
+            //       const facilityToRemove = await Facility.add({
+            //             name: 'Azkaban',
+            //             location: '123 England Island',
+            //             available_inmates: '5'})
             //       const facilityList = await Facility.find()
-            //       const removed = await Facility.remove({id: 7, name: 'Azkaban',
-            //       location: '123 England Island',
-            //       available_inmates: '5'})
+            //       const removed = await Facility.remove({
+                        //    id: , 
+                        //    name: 'Azkaban',
+                        //    location: '123 England Island',
+                        //    available_inmates: '5'})
             //       const newFacilityList = await Facility.find()
             //       expect(newFacilityList.length).toBeLessThan(facilityList.length)
             //       expect(facilityToRemove.name).toBe('whatever');
