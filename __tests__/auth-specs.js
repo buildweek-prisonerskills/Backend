@@ -1,6 +1,6 @@
 const supertest = require('supertest');
-
-const db = require('../auth/auth-router.js');
+const db = require('../data/dbConfig.js');
+const Auth = require('../auth/auth-router.js');
 const server = require('../api/server.js');
 
 describe('Auth Route /api/auth', () => {
@@ -8,18 +8,9 @@ describe('Auth Route /api/auth', () => {
             it('should return 201 if you register an account successfully', async () => {
                   const res = await supertest(server)
                   .post('/api/auth/register')
-                  .set({
-                        authorization:
-                        "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoxNSwidXNlcm5hbWUiOiJVUk1vbSIsImlhdCI6MTU2MTQ5OTUwMywiZXhwIjoxNTYxNTg1OTAzfQ.OqCF-_MePZ0A5pNQ_lUmVV5znRueb99B2IFnFzDQA_0"
-                  })
-                  .send({
-                        "username": "URMom",
-                        "password": "pass",
-                        "facility_id": "1"
-                  })
                   expect(res.status).toBe(201)
             })
-            it('')
+            // it('')
             
       })
       describe('/login', () => {
