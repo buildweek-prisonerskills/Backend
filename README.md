@@ -12,7 +12,8 @@ Client sends:
 ```
 {
   "username": "new user name", //REQUIRED
-  "password": "pass"           //REQUIRED
+  "password": "pass",          //REQUIRED
+  "facility_id": "1"           //REQUIRED (I'm so sorry I left this out!!!)
 }
 ```
 Server returns:
@@ -32,6 +33,7 @@ Client sends:
 {
   "username": "new user name", //REQUIRED
   "password": "pass"           //REQUIRED
+  
 }
 ```
 Server returns:
