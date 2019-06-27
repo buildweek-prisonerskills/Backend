@@ -56,13 +56,13 @@ Server returns:
     "id": 1,
     "name": "Colorado State Penitentiary",
     "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "50 Evans Rd, Cañon City, CO 81212"
+    "location": "50 Evans Rd, Cañon City, CO 81212"
   },
   {
     "id": 2,
     "name": "USP Florence ADMAX",
     "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "5880 CO-67, Florence, CO 81226"
+    "location": "5880 CO-67, Florence, CO 81226"
   },
   {
     "id": 3,
