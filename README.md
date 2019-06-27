@@ -213,8 +213,8 @@ Server will return
 {
     "id": 3,
     "name": "Rikers Island",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "11-11 Hazen Street, East Elmhurst, NY 11370"
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
+    "location": "11-11 Hazen Street, East Elmhurst, NY 11370"
 }
 ```
 ### Add new facility if admin is logged in
@@ -228,8 +228,8 @@ User can edit
 ```
 {
     "name": "Rikers Island",
-    "availability": "0", // this will need to be dynamic, however many an admin has added.
-    "address": "11-11 Hazen Street, East Elmhurst, NY 11370"
+    "available_inmates": "0", // this will need to be dynamic, however many an admin has added.
+    "location": "11-11 Hazen Street, East Elmhurst, NY 11370"
 }
 ```
 ### Delete facility profile if admin is logged in
