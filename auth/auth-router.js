@@ -1,14 +1,14 @@
 const express = require('express');
 const router = express.Router();
 const bcrypt = require("bcryptjs");
-const { generateToken } = require("./auth-middleware.js");
+const { generateToken, validateLogin, validateRegister } = require("./auth-middleware.js");
 
 const Users = require('../api/users-model.js');
 
 
 // endpoints start with /api/auth
 // ITS WORKING
-router.post('/register', (req, res) => {
+router.post('/register', validateRegister, (req, res) => {
   let user = req.body;
   const hash = bcrypt.hashSync(user.password, 12); //hashed 2^12th times
   user.password = hash;
@@ -24,7 +24,7 @@ router.post('/register', (req, res) => {
 });
 
 // ITS WORKING
-router.post('/login', (req, res) => {
+router.post('/login', validateLogin, (req, res) => {
   let { username, password } = req.body;
 
   Users.findBy({ username })
@@ -44,7 +44,7 @@ router.post('/login', (req, res) => {
     })
     .catch(err => {
       console.log("login fail", err);
-      res.status(500).jaon({ message: "login failed" });
+      res.status(500).json({ message: "login failed" });
     });
 });
 

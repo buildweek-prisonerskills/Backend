@@ -1,6 +1,6 @@
 const db = require('../data/dbConfig.js');
-const server = require('../api/server.js');
-const supertest = require('supertest');
+const Facility = require('../api/facility-model');
+// const supertest = require('supertest');
 const { add, update, remove, find, findInmates, findBy, findById } = require('../api/facility-model');
 
 describe('facility model', () => {
@@ -14,15 +14,21 @@ describe('facility model', () => {
 
       describe('add()', () => {
             it('should insert facility to facilities database', async () => {
-                  await add({facility: 'Azkaban'})
+                  await add({
+                        name: 'Azkaban',
+                        location: '123 England Island',
+                        available_inmates: '5'})
 
                   const facilities = await db('facilities');
                   expect(facilities).toHaveLength(1)
             })
             it('should insert provided facility', async () => {
-                  let facility = {facility: 'Jai1'};
-                  let inserted = await insert(facility);
-                  expect(inserted.facility).toBe(facility.facility)
+                  let facility = {
+                        name: 'Azkaban',
+                        location: '123 England Island',
+                        available_inmates: '5'};
+                  let inserted = await add(facility);
+                  expect(inserted.name).toBe(facility.name)
             })
             
       })
@@ -35,10 +41,12 @@ describe('facility model', () => {
                   expect(facilities).toHaveLength(0)
             })
             it('should delete the specified facility', async () => {
-                  const facilityList = await db.get()
-                  const facilityToRemove = await db.get({ 'f.name': 'whatever'})
-                  const removed = await db.remove({ facility: 'whatever' })
-                  const newFacilityList = await db.get()
+                  const facilityList = await Facility.find()
+                  const facilityToRemove = await Facility.add({name: 'Azkaban',
+                  location: '123 England Island',
+                  available_inmates: '5'})
+                  const removed = await Facility.remove(facilityToRemove)
+                  const newFacilityList = await Facility.find()
                   expect(newFacilityList.length).toBeLessThan(facilityList.length)
                   expect(facilityToRemove.name).toBe('whatever');
                   expect(removed).toBe(true);
@@ -49,7 +57,7 @@ describe('facility model', () => {
             it('should return an array from the database', async () => {
             //      let res = await superteset(server).get('/api/facilities')
             //      expect(Aray.isArray(res.body)).toBe(true);
-                  const facilities = await db.get()
+                  const facilities = await db.find()
                   expect(facilities).toEqual(expect.any(Array))
             })
       })
